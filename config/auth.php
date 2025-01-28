@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -13,9 +12,13 @@ return [
     |
     */
 
-    'defaults' => [
+    /*'defaults' => [
         'guard' => env('AUTH_GUARD', 'web'),
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+    ],*/
+    'defaults' => [
+        'guard' => 'api',
+        'passwords' => 'users',
     ],
 
     /*
@@ -38,6 +41,10 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'api' => [
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
     ],
