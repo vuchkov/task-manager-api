@@ -28,7 +28,7 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'string|max:255',
-            'status' => 'in:pending,completed',
+            'status' => 'pending',
         ]);
 
         $task = Task::create([
@@ -57,12 +57,8 @@ class TaskController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'status' => 'required|in:pending,completed',
-        ]);
-
         $task = Task::find($id);
-        $task->status = $request->status;
+        $task->status = 'completed';
         //$task->update();
         $task->save();
 
