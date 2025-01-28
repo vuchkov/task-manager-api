@@ -138,9 +138,9 @@ Log::error('Task creation error', ['exception' => $e]);
 - Load testing.
 
 6.2. Verify consistent responses:
-- 201 Created for successful requests.
-- 422 Unprocessable Entity for validation errors.
-- 500 Internal Server Error for unexpected issues (with logs captured).
+- `201 Created` for successful requests.
+- `422 Unprocessable Entity` for validation errors.
+- `500 Internal Server Error` for unexpected issues (with logs captured).
 
 6.3. Test in staging before deploying to production.
 
