@@ -8,4 +8,5 @@
 ## Usage
 - Clone the repo: `git clone ...` and run: `composer install`
 - Create .env: `cp .env.example .env`. Replace the absolute path of `DB_DATABASE` in `.env`
-- Run FB migrations: `php artisan migrate`
+- Generate the JWT secret key: `php artisan jwt:secret`
+- Run: `php artisan migrate`
