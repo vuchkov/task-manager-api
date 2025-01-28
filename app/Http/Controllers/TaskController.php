@@ -59,7 +59,6 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         $task->status = 'completed';
-        //$task->update();
         $task->save();
 
         return response()->json([
