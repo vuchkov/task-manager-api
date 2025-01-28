@@ -20,11 +20,13 @@ class TaskApiTest extends TestCase
         $response = $this->postJson('/api/tasks', [
             'title' => 'Test Task',
             'description' => 'A sample task',
+            'status' => 'completed',
         ]);
 
         $response->assertStatus(201)->assertJson([
             'title' => 'Test Task',
             'description' => 'A sample task',
+            'status' => 'completed',
         ]);
     }
 }

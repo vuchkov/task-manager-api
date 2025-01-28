@@ -27,12 +27,14 @@ class TaskController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'string|max:255',
+            'status' => 'in:pending,completed',
         ]);
 
         $task = Task::create([
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
 
         //return response()->json($task, 201);
@@ -40,6 +42,7 @@ class TaskController extends Controller
             'status' => 'success',
             'message' => 'Task created successfully',
             'Task' => $task,
+            201,
         ]);
     }
 
@@ -55,17 +58,12 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
             'status' => 'required|in:pending,completed',
         ]);
 
-        //$task = Task::findOrFail($id);
         $task = Task::find($id);
-        $task->title = $request->title;
-        $task->description = $request->description;
         $task->status = $request->status;
-        ////$task->update();
+        //$task->update();
         $task->save();
 
         return response()->json([
