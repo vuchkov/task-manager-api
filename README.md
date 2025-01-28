@@ -25,10 +25,9 @@ I also add:
 
 ### API Tasks
 - Tasks: list (GET): `http://127.0.0.1:8000/api/tasks`
-- Tasks: create a task (Post): `http://127.0.0.1:8000/api/tasks`, 
-with POST: title, description, status (default: "pending" | "completed").
-- Tasks: update a task status (Post): `http://127.0.0.1:8000/api/tasks/{id}`, 
-with GET (task) id & POST: status (pending | completed)
+- Tasks: create a task (POST): `http://127.0.0.1:8000/api/tasks`, 
+with POST: title, description (optionally) and (status: default "pending").
+- Tasks: update a task status (PUT): `http://127.0.0.1:8000/api/tasks/{id}`, GET (task) id -> status "completed".
 
 I also add:
 - Show a task (GET): `http://127.0.0.1:8000/api/tasks/{id}`
